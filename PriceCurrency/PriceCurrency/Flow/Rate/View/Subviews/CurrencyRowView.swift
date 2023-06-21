@@ -12,24 +12,25 @@ struct CurrencyRowView: View {
     var currency: Currency
     
     var body: some View {
-        HStack {
-            //Text("\(currency.rate, specifier: "%.2f")")
-            Text(currency.rate.formatted(.currency(code: currency.code)))
-                .frame(width: 100)
-            HStack(spacing: 0) {
-                Text(currency.code)
-                    .frame(width: 50)
-                    .background(Color(uiColor: .tertiarySystemFill))
-                Text(CodeDescription.description(code: currency.code))
-                    .font(.caption)
-                    .padding(.all, 4)
+        GeometryReader { reader in
+            HStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(currency.code)
+                        .padding(.horizontal, 8)
+                        .font(.headline)
+                    Text(CodeDescription.description(code: currency.code))
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                }
+                
+                Spacer()
+                
+                Text(currency.rate.formatted(.currency(code: currency.code)))
+                    .font(.headline)
+                    .multilineTextAlignment(.trailing)
             }
-            .cornerRadius(8)
-            .overlay (
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color(uiColor: .tertiarySystemFill), lineWidth: 2)
-            )
-            
+            .padding(.horizontal, 16)
+            .background(.clear)
         }
     }
 }

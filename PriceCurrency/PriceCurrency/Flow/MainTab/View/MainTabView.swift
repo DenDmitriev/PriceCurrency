@@ -19,6 +19,9 @@ struct MainTabView: View {
         self.viewModel = viewModel
         self.rateView = RateView(viewModel: RateModel())
         self.converterView = ConverterView(viewModel: ConverterModel())
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
     }
     
     var body: some View {
