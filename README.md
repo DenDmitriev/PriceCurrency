@@ -19,10 +19,10 @@
 
 ![TimerRate](https://github.com/DenDmitriev/PriceCurrency/assets/65191747/3b0f989f-15cf-4a0b-9fd6-d1e8949e67c2)
 
-Реализует это сервис [Exchange Rate API](#exchangerateapi)
+Реализует это сервис [Exchange Rate API](#exchangerateapi) https://api.exchangerate.host/latest?base=rub
 
 ## Конвертер валют
-Пользователь вводит коды валют и цену в левой валюте. Далее происходит автоматическая конвертация цены и результат выводит под введеной ценой. Реализует это сервис [Exchange Rate API](#exchangerateapi)
+Пользователь вводит коды валют и цену в левой валюте. Далее происходит автоматическая конвертация цены и результат выводит под введеной ценой. Реализует это сервис [Exchange Rate API](#exchangerateapi) https://api.exchangerate.host/convert?from=USD&to=EUR&amount=1
 
 ![CoverterPanel](https://github.com/DenDmitriev/PriceCurrency/assets/65191747/a1fd76f5-48c3-4cc9-a24d-048d2d1dbd6e)
 
@@ -36,8 +36,15 @@
 - [ExchangeRateAPI](#exchangerateapi)
 
 ## SwiftUI
+Интерфейс написан на SwiftUI, он легко обноляемый при использовании предикатов.
 
 ## Combine
+ - Используется в интерфейсе, предикаты. 
+https://github.com/DenDmitriev/PriceCurrency/blob/f940286084ba74d5edd199b603114034b4590829/PriceCurrency/PriceCurrency/Flow/Converter/View/ConverterView.swift#L13-L19
+
+ - Запросы в сеть.
+https://github.com/DenDmitriev/PriceCurrency/blob/f940286084ba74d5edd199b603114034b4590829/PriceCurrency/PriceCurrency/Core/Service/ExchangeRateAPI.swift#L62-L86
 
 ## ExchangeRateAPI
-[Exchange Rate API](https://exchangerate.host/#/#docs)
+Для сервиса полкчения данных используется [Exchange Rate API](https://exchangerate.host/#/#docs).
+https://github.com/DenDmitriev/PriceCurrency/blob/f940286084ba74d5edd199b603114034b4590829/PriceCurrency/PriceCurrency/Core/Service/ExchangeRateAPI.swift#L114-L172
