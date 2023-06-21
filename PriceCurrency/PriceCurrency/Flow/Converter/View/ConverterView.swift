@@ -93,7 +93,7 @@ struct ConverterView: View {
                 }
                 
             }
-            .background(.white)
+            .background(.background)
             .cornerRadius(16)
             
             VStack {

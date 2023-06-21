@@ -49,7 +49,7 @@ struct RateView: View {
                     .padding(.bottom)
                 
             }
-            .background(.white)
+            .background(.background)
             .cornerRadius(16)
             .padding(.all)
             
@@ -60,6 +60,7 @@ struct RateView: View {
                     .onReceive(timer) { date in
                         self.currentDate = date
                     }
+                    .padding()
                 Spacer()
                 Button {
                     showingFilter.toggle()
@@ -71,14 +72,14 @@ struct RateView: View {
                         .font(.footnote)
                         .cornerRadius(8)
                 }
+                .padding()
                 .popover(isPresented: $showingFilter) {
                     FilterView(selectedItems: $selectedItems)
                 }
             }
-            .padding([.horizontal])
-            .padding(.bottom, 8)
-            
-            Divider()
+//            .background(.background)
+            .cornerRadius(16)
+            .padding(.horizontal)
             
             List(viewModel.currencys) { currency in
                 if selectedItems.isEmpty {
@@ -91,7 +92,7 @@ struct RateView: View {
                     }
                 }
             }
-            .listStyle(.inset)
+            .listStyle(.insetGrouped)
         }
         .background(Color(uiColor: .quaternarySystemFill))
         .onAppear() {
