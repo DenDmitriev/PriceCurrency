@@ -36,7 +36,7 @@ struct ExchangeRateAPI {
             .eraseToAnyPublisher()
     }
     
-    ///Конвертации любой суммы из одной валюты в другую.
+    /// Конвертации любой суммы из одной валюты в другую.
     func converter(from: String, to: String, amount: Double) -> AnyPublisher<CurrencyConvrter, CurrencyError> {
         guard let url = Method.convert(from: from, to: to, amount: amount).url() else {
             return Fail<CurrencyConvrter, CurrencyError>(error: .urlComponents)
@@ -58,7 +58,7 @@ struct ExchangeRateAPI {
             .eraseToAnyPublisher()
     }
     
-    ///Курсы валют вплоть до 1999 года на дату.
+    /// Курсы валют вплоть до 1999 года на дату.
     func rate(date: Date, from: String, to: [String], amount: Double) -> AnyPublisher<CurrencyRate, CurrencyError> {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
